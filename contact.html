@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تماس با جامعه باز و آزاد برای زمین - FOC4G">
+    <title>تماس با ما | FOC4G</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f2a;
+            --primary-dark: #0d3d16;
+            --primary-light: #2d8a3e;
+            --secondary-color: #f4a261;
+            --accent-color: #e76f51;
+            --bg-light: #f8fdf9;
+            --bg-dark: #1a1a2e;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --text-muted: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --success-color: #28a745;
+            --error-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--text-light);
+            padding: 1rem 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text-main {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-text-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .info-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .info-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .info-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Social Links */
+        .social-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--text-light);
+        }
+
+        .social-card h3 {
+            color: var(--text-light);
+        }
+
+        .social-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .social-link-icon {
+            font-size: 1.5rem;
+        }
+
+        .social-link-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-link-name {
+            font-weight: 600;
+        }
+
+        .social-link-handle {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--text-light);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-label .required {
+            color: var(--accent-color);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(26, 95, 42, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236c757d' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            padding-left: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+            margin-top: 0.2rem;
+        }
+
+        .checkbox-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .checkbox-label a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(26, 95, 42, 0.3);
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 95, 42, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Form Messages */
+        .form-message {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .form-message.error {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Join Section */
+        .join-section {
+            padding: 80px 5%;
+            background: var(--text-light);
+        }
+
+        .join-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .join-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .join-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .join-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .membership-card {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .membership-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .membership-card.featured {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(26, 95, 42, 0.03), rgba(45, 138, 62, 0.03));
+        }
+
+        .membership-card.featured::before {
+            content: '⭐ پیشنهادی';
+            position: absolute;
+            top: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .membership-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .membership-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .membership-card .price {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .membership-features {
+            list-style: none;
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+
+        .membership-features li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .membership-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            width: 100%;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .faq-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--text-light);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: none;
+            border: none;
+            text-align: right;
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 5%;
+            background: var(--text-light);
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .map-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .map-wrapper {
+            background: var(--bg-light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .map-placeholder-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-placeholder h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-placeholder p {
+            opacity: 0.9;
+        }
+
+        .map-info {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .map-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .map-info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .map-info-text h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .map-info-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form-container {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--text-light);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .join-header h2,
+            .faq-header h2,
+            .map-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">F4G</div>
+            <div class="logo-text">
+                <span class="logo-text-main">FOC4G</span>
+                <span class="logo-text-sub">Free Open Community for Geo</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">صفحه اصلی</a></li>
+            <li><a href="about.html">درباره ما</a></li>
+            <li><a href="manifesto.html">بیانیه</a></li>
+            <li><a href="contact.html" class="active">تماس با ما</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>تماس با ما</h1>
+        <p>برای پیوستن به جامعه، پرسش یا پیشنهاد با ما در ارتباط باشید</p>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <!-- Location Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">📍</div>
+                        <h3>آدرس</h3>
+                    </div>
+                    <p>ارومیه، ایران</p>
+                    <p>دفتر مرکزی جامعه باز و آزاد برای زمین</p>
+                </div>
+
+                <!-- Email Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">📧</div>
+                        <h3>ایمیل</h3>
+                    </div>
+                    <p><a href="mailto:info@foc4g.org">info@foc4g.org</a></p>
+                    <p><a href="mailto:join@foc4g.org">join@foc4g.org</a> (عضویت)</p>
+                </div>
+
+                <!-- Working Hours Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">🕐</div>
+                        <h3>ساعات پاسخگویی</h3>
+                    </div>
+                    <p>شنبه تا چهارشنبه: ۹ صبح تا ۶ عصر</p>
+                    <p>پنجشنبه: ۹ صبح تا ۱ بعدازظهر</p>
+                </div>
+
+                <!-- Social Card -->
+                <div class="info-card social-card">
+                    <div class="info-card-header">
+                        <div class="info-icon" style="background: rgba(255,255,255,0.2);">🌐</div>
+                        <h3>شبکه‌های اجتماعی</h3>
+                    </div>
+                    <p>ما را در شبکه‌های اجتماعی دنبال کنید</p>
+                    <div class="social-grid">
+                        <a href="#" class="social-link">
+                            <span class="social-link-icon">📱</span>
+                            <span class="social-link-text">
+                                <span class="social-link-name">تلگرام</span>
+                                <span class="social-link-handle">@FOC4G</span>
+                            </span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-link-icon">💼</span>
+                            <span class="social-link-text">
+                                <span class="social-link-name">لینکدین</span>
+                                <span class="social-link-handle">FOC4G</span>
+                            </span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-link-icon">▶️</span>
+                            <span class="social-link-text">
+                                <span class="social-link-name">یوتیوب</span>
+                                <span class="social-link-handle">FOC4G</span>
+                            </span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-link-icon">💻</span>
+                            <span class="social-link-text">
+                                <span class="social-link-name">گیت‌هاب</span>
+                                <span class="social-link-handle">FOC4G</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h2>ارسال پیام</h2>
+                    <p>فرم زیر را پر کنید، در اسرع وقت با شما تماس می‌گیریم</p>
+                </div>
+
+                <!-- Success Message -->
+                <div class="form-message success" id="successMessage">
+                    <span>✅</span>
+                    <span>پیام شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم.</span>
+                </div>
+
+                <!-- Error Message -->
+                <div class="form-message error" id="errorMessage">
+                    <span>❌</span>
+                    <span>خطا در ارسال پیام. لطفاً دوباره تلاش کنید.</span>
+                </div>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">
+                                نام <span class="required">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="نام خود را وارد کنید">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">
+                                نام خانوادگی <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="نام خانوادگی خود را وارد کنید">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                ایمیل <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                شماره تماس
+                            </label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subject">
+                            موضوع <span class="required">*</span>
+                        </label>
+                        <select id="subject" name="subject" class="form-select" required>
+                            <option value="">انتخاب کنید...</option>
+                            <option value="membership">درخواست عضویت</option>
+                            <option value="collaboration">پیشنهاد همکاری</option>
+                            <option value="question">سوال عمومی</option>
+                            <option value="feedback">بازخورد و پیشنهاد</option>
+                            <option value="manifesto">پیشنهاد اصلاح بیانیه</option>
+                            <option value="event">برگزاری رویداد</option>
+                            <option value="other">سایر موارد</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="organization">
+                            سازمان / دانشگاه
+                        </label>
+                        <input type="text" id="organization" name="organization" class="form-input" placeholder="نام سازمان یا دانشگاه (اختیاری)">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">
+                            پیام <span class="required">*</span>
+                        </label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="پیام خود را بنویسید..."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="acceptTerms" name="acceptTerms" class="checkbox-input" required>
+                        <label for="acceptTerms" class="checkbox-label">
+                            <a href="manifesto.html">بیانیه جامعه</a> را مطالعه کرده‌ام و با اصول آن موافقم.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter" class="checkbox-input">
+                        <label for="newsletter" class="checkbox-label">
+                            مایل به دریافت خبرنامه و اطلاعیه‌های جامعه هستم.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="margin-top: 1.5rem;">
+                        <span>📤</span>
+                        <span>ارسال پیام</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section">
+        <div class="join-container">
+            <div class="join-header">
+                <h2>سطوح عضویت</h2>
+                <p>با پیوستن به جامعه باز و آزاد برای زمین، بخشی از یک حرکت بزرگ شوید</p>
+            </div>
+            <div class="membership-grid">
+                <!-- General Member -->
+                <div class="membership-card">
+                    <div class="membership-icon">👤</div>
+                    <h3>عضو عمومی</h3>
+                    <p class="price">رایگان</p>
+                    <ul class="membership-features">
+                        <li>دسترسی به منابع عمومی</li>
+                        <li>عضویت در کانال تلگرام</li>
+                        <li>شرکت در رویدادهای عمومی</li>
+                        <li>دریافت خبرنامه</li>
+                    </ul>
+                    <button class="btn btn-outline">ثبت‌نام رایگان</button>
+                </div>
+
+                <!-- Active Member -->
+                <div class="membership-card featured">
+                    <div class="membership-icon">⭐</div>
+                    <h3>عضو فعال</h3>
+                    <p class="price">رایگان + تعهد</p>
+                    <ul class="membership-features">
+                        <li>تمام مزایای عضو عمومی</li>
+                        <li>حق رأی در تصمیمات</li>
+                        <li>عضویت در کارگروه‌ها</li>
+                        <li>دسترسی به گروه خصوصی</li>
+                        <li>مشارکت در پروژه‌ها</li>
+                    </ul>
+                    <button class="btn btn-primary">درخواست عضویت</button>
+                </div>
+
+                <!-- Core Member -->
+                <div class="membership-card">
+                    <div class="membership-icon">🏆</div>
+                    <h3>عضو هسته</h3>
+                    <p class="price">انتخاب‌شده</p>
+                    <ul class="membership-features">
+                        <li>تمام مزایای عضو فعال</li>
+                        <li>نقش در شورای راهبری</li>
+                        <li>نمایندگی در رویدادها</li>
+                        <li>دسترسی به جلسات راهبری</li>
+                        <li>امکان بنیان‌گذاری شاخه محلی</li>
+                    </ul>
+                    <button class="btn btn-outline">اطلاعات بیشتر</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>سوالات متداول</h2>
+                <p>پاسخ سوالات رایج درباره جامعه و عضویت</p>
+            </div>
+            <div class="faq-list">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>چگونه می‌توانم عضو جامعه شوم؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            عضویت در جامعه باز و آزاد برای زمین رایگان است. کافی است فرم تماس را با انتخاب موضوع 
+                            «درخواست عضویت» پر کنید یا به کانال تلگرام ما بپیوندید. پس از ثبت‌نام، به عنوان 
+                            عضو عمومی شناخته می‌شوید و می‌توانید با مشارکت فعال، به سطوح بالاتر عضویت ارتقا یابید.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>آیاعضویت هزینه‌ای دارد؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            خیر، عضویت در تمامی سطوح کاملاً رایگان است. ما یک جامعه مستقل و غیرانتفاعی هستیم 
+                            که بر پایه مشارکت داوطلبانه اعضا بنا شده است. تنها چیزی که از اعضای فعال انتظار داریم، 
+                            تعهد به اصول بیانیه و مشارکت در فعالیت‌های جامعه است.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>چه تخصصی برای عضویت لازم است؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            جامعه ما به روی همه علاقه‌مندان باز است. اگرچه تمرکز اصلی ما بر علوم مکانی (GIS)، 
+                            سنجش از دور، جغرافیا، شهرسازی، محیط‌زیست و حوزه‌های مرتبط است، اما هر فردی که 
+                            به اصول شفافیت، داده‌های باز و حفاظت از زمین باور دارد، می‌تواند عضو شود. 
+                            دانشجویان، اساتید، متخصصان، مدیران و حتی شهروندان عادی علاقه‌مند می‌توانند بپیوندند.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>FOC4G چه ارتباطی با OSGeo و FOSS4G دارد؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            جامعه باز و آزاد برای زمین (FOC4G) یک نهاد مستقل ایرانی است که با الهام از اصول 
+                            جنبش جهانی نرم‌افزار و داده‌های آزاد جغرافیایی تأسیس شده است. بنیان‌گذار این جامعه، 
+                            عضو رسمی شبکه OSGeo Advocates است. ما با این نهادهای بین‌المللی همبستگی داریم 
+                            و از اصول آن‌ها پیروی می‌کنیم، اما یک سازمان جداگانه و مستقل هستیم.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>چگونه می‌توانم در شهر خود شاخه محلی تأسیس کنم؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            برای تأسیس شاخه محلی، ابتدا باید به عنوان عضو فعال در جامعه مشارکت داشته باشید. 
+                            سپس می‌توانید با ارسال درخواست به شورای راهبری، پیشنهاد تأسیس شاخه در شهر خود را مطرح کنید. 
+                            شما باید حداقل ۳ نفر عضو فعال در شهر خود داشته باشید و یک برنامه اولیه برای فعالیت‌های 
+                            شاخه ارائه دهید. شورای راهبری پس از بررسی، مجوز تأسیس را صادر می‌کند.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>چگونه می‌توانم در بیانیه پیشنهاد اصلاحی بدهم؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            بیانیه جامعه یک سند زنده است و هر عضو می‌تواند پیشنهاد اصلاحی ارائه دهد. 
+                            برای این کار، می‌توانید از طریق فرم تماس با انتخاب موضوع «پیشنهاد اصلاح بیانیه» 
+                            نظرات خود را ارسال کنید. پیشنهادات توسط شورای راهبری بررسی و در صورت تأیید، 
+                            به مجمع عمومی برای رأی‌گیری ارائه می‌شود.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>آیا جامعه وابستگی سیاسی یا دولتی دارد؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            خیر، جامعه باز و آزاد برای زمین یک نهاد کاملاً مستقل است و به هیچ دولت، حزب، 
+                            سازمان دولتی یا شرکت خاصی وابسته نیست. استقلال یکی از اصول بنیادین ماست. 
+                            ما هیچ بودجه یا دستوری از نهادهای دولتی یا سیاسی نمی‌گیریم و تأمین مالی ما 
+                            صرفاً از طریق کمک‌های داوطلبانه اعضا و حامیان مستقل صورت می‌گیرد.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>رویدادهای جامعه چگونه برگزار می‌شود؟</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            ما رویدادهای متنوعی برگزار می‌کنیم از جمله: Geo Talk (جلسات گفتگو و ارائه)، 
+                            کارگاه‌های آموزشی، وبینارها، مپاتون (Mapathon) و رویدادهای ویژه مانند GIS Day. 
+                            رویدادها هم به صورت حضوری و هم آنلاین برگزار می‌شوند. برای اطلاع از رویدادها، 
+                            در خبرنامه ما عضو شوید یا کانال تلگرام را دنبال کنید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-header">
+                <h2>موقعیت ما</h2>
+            </div>
+            <div class="map-wrapper">
+                <div class="map-placeholder">
+                    <div class="map-placeholder-icon">🗺️</div>
+                    <h3>ارومیه، ایران</h3>
+                    <p>دفتر مرکزی جامعه باز و آزاد برای زمین</p>
+                </div>
+                <div class="map-info">
+                    <div class="map-info-item">
+                        <div class="map-info-icon">📍</div>
+                        <div class="map-info-text">
+                            <h4>آدرس</h4>
+                            <p>ارومیه، ایران</p>
+                        </div>
+                    </div>
+                    <div class="map-info-item">
+                        <div class="map-info-icon">📧</div>
+                        <div class="map-info-text">
+                            <h4>ایمیل</h4>
+                            <p>info@foc4g.org</p>
+                        </div>
+                    </div>
+                    <div class="map-info-item">
+                        <div class="map-info-icon">📱</div>
+                        <div class="map-info-text">
+                            <h4>تلگرام</h4>
+                            <p>@FOC4G</p>
+                        </div>
+                    </div>
+                    <div class="map-info-item">
+                        <div class="map-info-icon">🌐</div>
+                        <div class="map-info-text">
+                            <h4>وب‌سایت</h4>
+                            <p>www.foc4g.org</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section style="padding: 80px 5%; background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); color: var(--text-light);">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">عضویت در خبرنامه</h2>
+            <p style="opacity: 0.9; margin-bottom: 2rem;">
+                برای دریافت آخرین اخبار، رویدادها و مقالات جامعه در خبرنامه ما عضو شوید
+            </p>
+            <form style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <input 
+                    type="email" 
+                    placeholder="ایمیل خود را وارد کنید" 
+                    style="flex: 1; min-width: 250px; padding: 1rem 1.5rem; border: none; border-radius: 12px; font-size: 1rem; font-family: inherit;"
+                    required
+                >
+                <button 
+                    type="submit" 
+                    style="padding: 1rem 2rem; background: var(--secondary-color); color: var(--text-dark); border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: var(--transition);"
+                    onmouseover="this.style.transform='translateY(-3px)'"
+                    onmouseout="this.style.transform='translateY(0)'"
+                >
+                    📬 عضویت
+                </button>
+            </form>
+            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;">
+                ما به حریم خصوصی شما احترام می‌گذاریم و هرگز ایمیل شما را با دیگران به اشتراک نمی‌گذاریم.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>درباره FOC4G</h4>
+                <p>جامعه باز و آزاد برای زمین، نهادی مدنی-تخصصی برای حفاظت از سرزمین از طریق شفافیت، دانش و مشارکت مدنی.</p>
+                <div class="footer-social-links">
+                    <a href="#" title="تلگرام">📱</a>
+                    <a href="#" title="لینکدین">💼</a>
+                    <a href="#" title="یوتیوب">▶️</a>
+                    <a href="#" title="گیت‌هاب">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>لینک‌های سریع</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="manifesto.html">بیانیه</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>منابع</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.osgeo.org" target="_blank">OSGeo Foundation</a></li>
+                    <li><a href="https://foss4g.org" target="_blank">FOSS4G</a></li>
+                    <li><a href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a></li>
+                    <li><a href="https://www.geoforall.org" target="_blank">GeoForAll</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تماس</h4>
+                <p>📍 ارومیه، ایران</p>
+                <p>📧 info@foc4g.org</p>
+                <p>📱 @FOC4G</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ۱۴۰۴ جامعه باز و آزاد برای زمین (FOC4G) | تمامی محتوا تحت مجوز آزاد منتشر می‌شود</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Handle Form Submit
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const form = document.getElementById('contactForm');
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⏳</span><span>در حال ارسال...</span>';
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Simulate success
+                const isSuccess = true; // Change based on actual response
+                
+                if (isSuccess) {
+                    successMessage.style.display = 'flex';
+                    form.reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    errorMessage.style.display = 'flex';
+                }
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>📤</span><span>ارسال پیام</span>';
+            }, 2000);
+        }
+
+        // Form Validation Enhancement
+        document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.required && !this.value.trim()) {
+                    this.style.borderColor = '#dc3545';
+                } else {
+                    this.style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#1a5f2a';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.info-card, .membership-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
