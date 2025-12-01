@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="جامعه باز و آزاد برای زمین - FOC4G | Free Open Community for Geo">
+    <meta name="keywords" content="FOC4G, GIS, جامعه باز, زمین, داده مکانی, OSGeo, FOSS4G">
+    <meta name="author" content="FOC4G">
+    <title>FOC4G | جامعه باز و آزاد برای زمین</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f2a;
+            --primary-dark: #0d3d16;
+            --primary-light: #2d8a3e;
+            --secondary-color: #f4a261;
+            --accent-color: #e76f51;
+            --bg-light: #f8fdf9;
+            --bg-dark: #1a1a2e;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --text-muted: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--text-light);
+            padding: 1rem 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text-main {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-text-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5% 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8f5e9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(26, 95, 42, 0.05) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero-quote {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            border-right: 4px solid var(--primary-color);
+            background: rgba(26, 95, 42, 0.05);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(26, 95, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 95, 42, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--text-light);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background: var(--text-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--text-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 5%;
+            text-align: center;
+            background: var(--bg-light);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 80px 5%;
+            background: var(--text-light);
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--text-light);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">F4G</div>
+            <div class="logo-text">
+                <span class="logo-text-main">FOC4G</span>
+                <span class="logo-text-sub">Free Open Community for Geo</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">صفحه اصلی</a></li>
+            <li><a href="about.html">درباره ما</a></li>
+            <li><a href="manifesto.html">بیانیه</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🌍 جامعه‌ای مستقل و آزاد</span>
+            <h1>جامعه باز و آزاد <span>برای زمین</span></h1>
+            <p class="hero-subtitle">Free Open Community for Geo</p>
+            <p class="hero-quote">«زمین، میراث ماست؛ داده، زبان ماست؛ و شفافیت، حق ماست.»</p>
+            <div class="hero-buttons">
+                <a href="manifesto.html" class="btn btn-primary">📜 مطالعه بیانیه</a>
+                <a href="contact.html" class="btn btn-secondary">🤝 عضویت در جامعه</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>اصول بنیادین ما</h2>
+            <p>ما بر پایه این اصول، برای حفاظت از زمین و شفافیت در تصمیمات سرزمینی تلاش می‌کنیم</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔓</div>
+                <h3>بازبودن</h3>
+                <p>داده‌های باز، ابزارهای باز، دانش باز و عضویت باز برای همه علاقه‌مندان</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕊️</div>
+                <h3>آزادی</h3>
+                <p>آزادی بیان تخصصی بدون ترس از فشارهای بیرونی و استقلال کامل</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>شفافیت</h3>
+                <p>شفافیت در تصمیمات سرزمینی و دسترسی عمومی به پیوست مکانی پروژه‌ها</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>مشارکت</h3>
+                <p>مشارکت داوطلبانه اعضا در تصمیم‌گیری‌ها با حق رأی برابر</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>حفاظت</h3>
+                <p>حفاظت از زمین در برابر آسیب‌های ناشی از تصمیمات غیرکارشناسی</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>همبستگی</h3>
+                <p>همبستگی با جوامع بین‌المللی آزاد مانند OSGeo و FOSS4G</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>۱۴۰۴</h3>
+                <p>سال تأسیس</p>
+            </div>
+            <div class="stat-item">
+                <h3>ارومیه</h3>
+                <p>شهر مرکزی</p>
+            </div>
+            <div class="stat-item">
+                <h3>OSGeo</h3>
+                <p>همبستگی بین‌المللی</p>
+            </div>
+            <div class="stat-item">
+                <h3>آزاد</h3>
+                <p>عضویت رایگان</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>به جامعه ما بپیوندید</h2>
+            <p>اگر شما هم باور دارید که زمین امانت است نه غنیمت، و شفافیت حق مردم است، به FOC4G بپیوندید.</p>
+            <a href="contact.html" class="btn btn-primary">🚀 شروع کنید</a>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="section-header">
+            <h2>همبستگی بین‌المللی</h2>
+            <p>ما خود را بخشی از جنبش جهانی داده‌های باز و نرم‌افزار آزاد می‌دانیم</p>
+        </div>
+        <div class="partners-logos">
+            <span class="partner-logo">🌍 OSGeo</span>
+            <span class="partner-logo">🗺️ FOSS4G</span>
+            <span class="partner-logo">📍 OpenStreetMap</span>
+            <span class="partner-logo">🎓 GeoForAll</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>درباره FOC4G</h4>
+                <p>جامعه باز و آزاد برای زمین، نهادی مدنی-تخصصی برای حفاظت از سرزمین از طریق شفافیت، دانش و مشارکت مدنی.</p>
+                <div class="social-links">
+                    <a href="#" title="تلگرام">📱</a>
+                    <a href="#" title="لینکدین">💼</a>
+                    <a href="#" title="یوتیوب">▶️</a>
+                    <a href="#" title="گیت‌هاب">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>لینک‌های سریع</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="manifesto.html">بیانیه</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>منابع</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.osgeo.org" target="_blank">OSGeo Foundation</a></li>
+                    <li><a href="https://foss4g.org" target="_blank">FOSS4G</a></li>
+                    <li><a href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a></li>
+                    <li><a href="https://www.geoforall.org" target="_blank">GeoForAll</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تماس</h4>
+                <p>📍 ارومیه، ایران</p>
+                <p>📧 info@foc4g.org</p>
+                <p>📱 @FOC4G</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ۱۴۰۴ جامعه باز و آزاد برای زمین (FOC4G) | تمامی محتوا تحت مجوز آزاد منتشر می‌شود</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
