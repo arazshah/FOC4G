@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="بیانیه تأسیس جامعه باز و آزاد برای زمین - FOC4G">
+    <title>بیانیه | FOC4G</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f2a;
+            --primary-dark: #0d3d16;
+            --primary-light: #2d8a3e;
+            --secondary-color: #f4a261;
+            --accent-color: #e76f51;
+            --bg-light: #f8fdf9;
+            --bg-dark: #1a1a2e;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --text-muted: #6c757d;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--text-light);
+            padding: 1rem 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text-main {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-text-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 5% 80px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Document Container */
+        .document-container {
+            max-width: 900px;
+            margin: -40px auto 80px;
+            background: var(--text-light);
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .document-header {
+            background: linear-gradient(135deg, rgba(26, 95, 42, 0.05), rgba(45, 138, 62, 0.05));
+            padding: 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .document-logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .document-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .document-subtitle {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .document-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .document-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .document-body {
+            padding: 3rem;
+        }
+
+        .document-note {
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), rgba(244, 162, 97, 0.05));
+            border-right: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 2rem;
+        }
+
+        .document-note h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .document-note p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Article Styles */
+        .article {
+            margin-bottom: 3rem;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .article-number {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .article-content {
+            padding-right: 1rem;
+        }
+
+        .clause {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border-right: 3px solid var(--primary-light);
+        }
+
+        .clause-number {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-left: 0.5rem;
+        }
+
+        .clause p {
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .sub-clause {
+            margin-top: 0.75rem;
+            padding-right: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .sub-clause li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Principle Cards */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .principle-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .principle-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .principle-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .principle-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .principle-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--text-light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .quote-box p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .signature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-signature {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .signature-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .signature-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .signature-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .signature-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.2rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Committee Signatures Table */
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .committee-table th,
+        .committee-table td {
+            padding: 1rem;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .committee-table th {
+            background: var(--bg-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .committee-table td {
+            color: var(--text-muted);
+        }
+
+        .pending {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        /* Version History */
+        .version-history {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .version-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .version-table th,
+        .version-table td {
+            padding: 0.75rem 1rem;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .version-table th {
+            background: var(--bg-light);
+            color: var(--primary-dark);
+        }
+
+        .version-badge {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* Download Button */
+        .download-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(26, 95, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 95, 42, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--text-light);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--text-light);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .document-container {
+                margin: -40px 1rem 40px;
+                border-radius: 16px;
+            }
+
+            .document-header,
+            .document-body {
+                padding: 1.5rem;
+            }
+
+            .document-title {
+                font-size: 1.5rem;
+            }
+
+            .document-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .founder-signature {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .committee-table,
+            .version-table {
+                font-size: 0.85rem;
+            }
+
+            .committee-table th,
+            .committee-table td,
+            .version-table th,
+            .version-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">F4G</div>
+            <div class="logo-text">
+                <span class="logo-text-main">FOC4G</span>
+                <span class="logo-text-sub">Free Open Community for Geo</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">صفحه اصلی</a></li>
+            <li><a href="about.html">درباره ما</a></li>
+            <li><a href="manifesto.html" class="active">بیانیه</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>بیانیه تأسیس</h1>
+        <p>سند رسمی تأسیس جامعه باز و آزاد برای زمین</p>
+    </header>
+
+    <!-- Document Container -->
+    <main class="document-container">
+        <!-- Document Header -->
+        <div class="document-header">
+            <div class="document-logo">🌍</div>
+            <h1 class="document-title">بیانیه تأسیس جامعه باز و آزاد برای زمین</h1>
+            <p class="document-subtitle">Free Open Community for Geo (FOC4G)</p>
+            <div class="document-meta">
+                <span>📄 نسخه: ۰.۱ (پیش‌نویس)</span>
+                <span>📅 تاریخ: آذر ۱۴۰۴</span>
+                <span>📍 محل: ارومیه، ایران</span>
+            </div>
+        </div>
+
+        <!-- Document Body -->
+        <div class="document-body">
+            <!-- Editorial Note -->
+            <div class="document-note">
+                <h4>📝 یادداشت ویرایشی</h4>
+                <p>
+                    این سند، پیش‌نویس اولیه بیانیه تأسیس جامعه باز و آزاد برای زمین (FOC4G) است. 
+                    این متن توسط بنیان‌گذار تهیه شده و پس از بررسی، ویرایش و تصویب توسط کمیته مؤسس، 
+                    به عنوان سند رسمی جامعه منتشر خواهد شد. اعضای کمیته مؤسس می‌توانند پیشنهادات اصلاحی خود را ارائه دهند.
+                </p>
+            </div>
+
+            <!-- Quote -->
+            <div class="quote-box">
+                <p>«زمین، میراث ماست؛ داده، زبان ماست؛ و شفافیت، حق ماست.»</p>
+            </div>
+
+            <!-- Article 1: Introduction -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۱</div>
+                    <h2 class="article-title">مقدمه</h2>
+                </div>
+                <div class="article-content">
+                    <div class="clause">
+                        <p>
+                            ما، امضاکنندگان این بیانیه، با باور به ارزش زمین به عنوان میراث مشترک بشری 
+                            و با اعتقاد به قدرت دانش مکانی در خدمت منافع عمومی، جامعه‌ای مستقل، باز و آزاد 
+                            را با نام <strong>«جامعه باز و آزاد برای زمین»</strong> و با نام اختصاری 
+                            <strong>FOC4G</strong> تأسیس می‌کنیم.
+                        </p>
+                    </div>
+                    <div class="clause">
+                        <p>
+                            این جامعه، با الهام از اصول جنبش جهانی متن‌باز و داده‌های آزاد جغرافیایی 
+                            و در همبستگی با نهادهایی چون OSGeo و FOSS4G، متعهد به شفافیت، مشارکت و حفاظت از زمین است.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2: Identity -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۲</div>
+                    <h2 class="article-title">هویت</h2>
+                </div>
+                <div class="article-content">
+                    <div class="clause">
+                        <span class="clause-number">۲.۱.</span>
+                        <p>نام رسمی این نهاد، <strong>«جامعه باز و آزاد برای زمین»</strong> است.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۲.۲.</span>
+                        <p>نام انگلیسی این نهاد، <strong>«Free Open Community for Geo»</strong> و نام اختصاری آن <strong>«FOC4G»</strong> است.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۲.۳.</span>
+                        <p>این جامعه، یک نهاد مدنی-تخصصی، غیرانتفاعی و مستقل است که به هیچ دولت، حزب، سازمان یا شرکت خاصی وابسته نیست.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۲.۴.</span>
+                        <p>این جامعه در تاریخ آذر ۱۴۰۴ در شهر ارومیه، ایران، توسط بنیان‌گذار که عضو رسمی شبکه OSGeo Advocates است، پایه‌گذاری شده است.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3: Beliefs -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۳</div>
+                    <h2 class="article-title">باورهای بنیادین</h2>
+                </div>
+                <div class="article-content">
+                    <p style="margin-bottom: 1rem; color: var(--text-muted);">ما باور داریم که:</p>
+                    <div class="clause">
+                        <span class="clause-number">۳.۱.</span>
+                        <p>زمین، میراث مشترک همه نسل‌هاست و حفاظت از آن، وظیفه همگانی است.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۳.۲.</span>
+                        <p>دانش مکانی، ابزاری قدرتمند برای درک، برنامه‌ریزی و حفاظت از زمین است و باید در خدمت منافع عمومی باشد.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۳.۳.</span>
+                        <p>داده‌های مکانی که با منابع عمومی تولید می‌شوند، متعلق به عموم مردم هستند و باید به صورت باز و آزاد در دسترس باشند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۳.۴.</span>
+                        <p>شفافیت در تصمیمات سرزمینی، پیش‌نیاز حکمرانی خوب و حفاظت از منافع عمومی است.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۳.۵.</span>
+                        <p>مشارکت متخصصان مستقل در نظارت بر پروژه‌های سرزمینی، حق و وظیفه مدنی است.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 4: Objectives -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۴</div>
+                    <h2 class="article-title">اهداف</h2>
+                </div>
+                <div class="article-content">
+                    <p style="margin-bottom: 1rem; color: var(--text-muted);">اهداف این جامعه عبارتند از:</p>
+                    <div class="clause">
+                        <span class="clause-number">۴.۱.</span>
+                        <p>ترویج فرهنگ شفافیت در تصمیمات سرزمینی و پروژه‌های مرتبط با زمین.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۴.۲.</span>
+                        <p>مطالبه انتشار عمومی داده‌های مکانی تولیدشده با منابع عمومی.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۴.۳.</span>
+                        <p>نظارت مدنی-تخصصی بر پروژه‌هایی که بر زمین و منافع عمومی تأثیر می‌گذارند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۴.۴.</span>
+                        <p>ارتقای دانش و مهارت‌های مکانی در میان اعضا و جامعه.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۴.۵.</span>
+                        <p>ایجاد شبکه‌ای از متخصصان، دانشجویان، اساتید و مدیران متعهد به حفاظت از زمین.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۴.۶.</span>
+                        <p>همکاری با جوامع بین‌المللی آزاد در حوزه علوم مکانی.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 5: Principles -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۵</div>
+                    <h2 class="article-title">اصول راهبردی</h2>
+                </div>
+                <div class="article-content">
+                    <div class="principles-grid">
+                        <div class="principle-card">
+                            <div class="principle-icon">🔓</div>
+                            <h4>اصل اول: بازبودن</h4>
+                            <p>داده‌های باز، ابزارهای باز، دانش باز و عضویت باز. تمامی مستندات و تصمیمات به صورت عمومی منتشر می‌شود.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">🕊️</div>
+                            <h4>اصل دوم: آزادی</h4>
+                            <p>آزادی بیان تخصصی اعضا بدون ترس از فشارهای بیرونی و پرهیز از هرگونه وابستگی محدودکننده.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">🔍</div>
+                            <h4>اصل سوم: شفافیت</h4>
+                            <p>شفافیت در تصمیمات سرزمینی حق عمومی است. هر پروژه باید دارای پیوست مکانی شفاف باشد.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">👥</div>
+                            <h4>اصل چهارم: مشارکت</h4>
+                            <p>مشارکت داوطلبانه اعضا در تصمیم‌گیری‌ها. هر عضو، صرف‌نظر از جایگاه، حق مشارکت برابر دارد.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">🛡️</div>
+                            <h4>اصل پنجم: حفاظت</h4>
+                            <p>حفاظت از زمین در برابر آسیب‌های ناشی از تصمیمات غیرکارشناسی و ارائه راه‌حل‌های جایگزین.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">🌐</div>
+                            <h4>اصل ششم: همبستگی</h4>
+                            <p>همبستگی با جوامع بین‌المللی آزاد مانند OSGeo، FOSS4G، OpenStreetMap و GeoForAll.</p>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">⚖️</div>
+                            <h4>اصل هفتم: استقلال</h4>
+                            <p>عدم دریافت بودجه یا دستور از نهادهای دولتی، حزبی یا تجاری. تأمین مالی از طریق کمک‌های داوطلبانه.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 6: Rights and Obligations -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۶</div>
+                    <h2 class="article-title">حقوق و تعهدات اعضا</h2>
+                </div>
+                <div class="article-content">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">۶.۱. حقوق اعضا</h4>
+                    <div class="clause">
+                        <p>هر عضو از حقوق زیر برخوردار است:</p>
+                        <ul class="sub-clause">
+                            <li>حق دسترسی به تمامی منابع، مستندات و گزارش‌های جامعه</li>
+                            <li>حق مشارکت در تصمیم‌گیری‌های جامعه</li>
+                            <li>حق بیان نظر تخصصی بدون ترس از فشار</li>
+                            <li>حق عضویت در کمیته‌ها و کارگروه‌های تخصصی</li>
+                            <li>حق نامزدی برای مسئولیت‌های اجرایی</li>
+                        </ul>
+                    </div>
+                    
+                    <h4 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">۶.۲. تعهدات اعضا</h4>
+                    <div class="clause">
+                        <p>هر عضو متعهد می‌شود:</p>
+                        <ul class="sub-clause">
+                            <li>صداقت علمی را رعایت کند و هرگز داده‌سازی نکند</li>
+                            <li>استقلال نظر خود را حفظ کند و تحت تأثیر فشارهای بیرونی قرار نگیرد</li>
+                            <li>تضاد منافع احتمالی خود را اعلام کند</li>
+                            <li>با سایر اعضا با احترام رفتار کند</li>
+                            <li>دانش خود را با جامعه به اشتراک بگذارد</li>
+                            <li>از اصول و ارزش‌های این بیانیه پاسداری کند</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 7: Structure -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۷</div>
+                    <h2 class="article-title">ساختار و حکمرانی</h2>
+                </div>
+                <div class="article-content">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">۷.۱. ارکان جامعه</h4>
+                    <div class="clause">
+                        <span class="clause-number">۷.۱.۱.</span>
+                        <p><strong>مجمع عمومی اعضا:</strong> بالاترین مرجع تصمیم‌گیری</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۱.۲.</span>
+                        <p><strong>شورای راهبری:</strong> مسئول هدایت و نظارت بر امور جاری</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۱.۳.</span>
+                        <p><strong>کمیته‌های تخصصی:</strong> مسئول اجرای وظایف تخصصی</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۱.۴.</span>
+                        <p><strong>شاخه‌های محلی:</strong> نمایندگی جامعه در شهرها و مناطق</p>
+                    </div>
+
+                    <h4 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">۷.۲. اصول حکمرانی</h4>
+                    <div class="clause">
+                        <span class="clause-number">۷.۲.۱.</span>
+                        <p><strong>شفافیت:</strong> تمام تصمیمات به صورت عمومی مستند می‌شود</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۲.۲.</span>
+                        <p><strong>مشارکت:</strong> اعضا در تصمیمات مهم مشارکت دارند</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۲.۳.</span>
+                        <p><strong>پاسخگویی:</strong> شورای راهبری به مجمع عمومی پاسخگو است</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۲.۴.</span>
+                        <p><strong>عدم تمرکز:</strong> قدرت میان ارکان توزیع شده است</p>
+                    </div>
+
+                    <h4 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">۷.۳. آیین‌نامه‌ها</h4>
+                    <div class="clause">
+                        <span class="clause-number">۷.۳.۱.</span>
+                        <p>جزئیات ساختار، وظایف و فرآیندها در آیین‌نامه‌های جداگانه تعیین می‌شود</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۷.۳.۲.</span>
+                        <p>آیین‌نامه‌ها توسط شورای راهبری تهیه و به تصویب مجمع عمومی می‌رسد</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 8: Oversight -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۸</div>
+                    <h2 class="article-title">نظارت بر پروژه‌های سرزمینی</h2>
+                </div>
+                <div class="article-content">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">۸.۱. حق نظارت</h4>
+                    <div class="clause">
+                        <span class="clause-number">۸.۱.۱.</span>
+                        <p>این جامعه حق خود می‌داند که بر پروژه‌هایی که از منابع عمومی تأمین می‌شوند و بر زمین اجرا می‌گردند، نظارت تخصصی داشته باشد.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۸.۱.۲.</span>
+                        <p>این نظارت شامل تحلیل مکانی مستقل، بررسی اثرات زیست‌محیطی و ارزیابی تطابق با منافع عمومی است.</p>
+                    </div>
+
+                    <h4 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">۸.۲. گزارش‌های تحلیلی</h4>
+                    <div class="clause">
+                        <span class="clause-number">۸.۲.۱.</span>
+                        <p>این جامعه گزارش‌های تحلیلی خود را بر اساس داده‌های عمومی و با روش‌های علمی تهیه می‌کند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۸.۲.۲.</span>
+                        <p>گزارش‌ها پیش از انتشار، توسط کمیته تخصصی بررسی می‌شوند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۸.۲.۳.</span>
+                        <p>مجریان پروژه‌ها فرصت پاسخگویی خواهند داشت.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۸.۲.۴.</span>
+                        <p>گزارش‌های نهایی به صورت عمومی منتشر می‌شوند.</p>
+                    </div>
+
+                    <h4 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">۸.۳. محدودیت‌ها</h4>
+                    <div class="clause">
+                        <span class="clause-number">۸.۳.۱.</span>
+                        <p>این جامعه ادعای حق وتو یا توقف پروژه‌ها را ندارد.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۸.۳.۲.</span>
+                        <p>قدرت این جامعه، قدرت دانش، شفافیت و افکار عمومی است.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 9: International Solidarity -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۹</div>
+                    <h2 class="article-title">همبستگی بین‌المللی</h2>
+                </div>
+                <div class="article-content">
+                    <div class="clause">
+                        <span class="clause-number">۹.۱.</span>
+                        <p>این جامعه خود را هم‌راستا با اصول بنیاد OSGeo می‌داند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۹.۲.</span>
+                        <p>این جامعه از جنبش FOSS4G و استفاده از نرم‌افزارهای آزاد جغرافیایی حمایت می‌کند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۹.۳.</span>
+                        <p>این جامعه با پروژه‌های جهانی مانند OpenStreetMap همکاری می‌کند.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۹.۴.</span>
+                        <p>این جامعه متعهد به انتقال تجربیات خود به جامعه جهانی و بهره‌گیری از تجربیات بین‌المللی است.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 10: Revision -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۱۰</div>
+                    <h2 class="article-title">بازنگری و اصلاح</h2>
+                </div>
+                <div class="article-content">
+                    <div class="clause">
+                        <span class="clause-number">۱۰.۱.</span>
+                        <p>این بیانیه یک سند زنده است و می‌تواند بر اساس نیازهای جامعه بازنگری شود.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۱۰.۲.</span>
+                        <p>پیشنهادات اصلاحی توسط هر عضو قابل ارائه است.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۱۰.۳.</span>
+                        <p>اصلاحات پس از بررسی شورای راهبری و تصویب مجمع عمومی اعمال می‌شود.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۱۰.۴.</span>
+                        <p>هر نسخه جدید با شماره نسخه و تاریخ مشخص منتشر می‌شود.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 11: Approval -->
+            <article class="article">
+                <div class="article-header">
+                    <div class="article-number">۱۱</div>
+                    <h2 class="article-title">تصویب و اجرا</h2>
+                </div>
+                <div class="article-content">
+                    <div class="clause">
+                        <span class="clause-number">۱۱.۱.</span>
+                        <p>این بیانیه پس از تصویب توسط کمیته مؤسس، رسمیت می‌یابد.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۱۱.۲.</span>
+                        <p>نسخه تصویب‌شده با امضای اعضای کمیته مؤسس منتشر می‌شود.</p>
+                    </div>
+                    <div class="clause">
+                        <span class="clause-number">۱۱.۳.</span>
+                        <p>این بیانیه از تاریخ تصویب، مبنای فعالیت‌های جامعه خواهد بود.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Signature Section -->
+            <div class="signature-section">
+                <h3 class="signature-title">امضای پیش‌نویس</h3>
+                
+                <div class="founder-signature">
+                    <div class="signature-avatar">👤</div>
+                    <div class="signature-info">
+                        <h4>بنیان‌گذار و تهیه‌کننده پیش‌نویس</h4>
+                        <p>[نام بنیان‌گذار]</p>
+                        <span class="signature-badge">🌍 OSGeo Advocate</span>
+                        <p style="margin-top: 0.5rem;">📅 آذر ۱۴۰۴ | 📍 ارومیه، ایران</p>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--primary-dark); margin: 2rem 0 1rem;">فضای امضای کمیته مؤسس</h4>
+                <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">(پس از بررسی و تصویب تکمیل می‌شود)</p>
+                
+                <table class="committee-table">
+                    <thead>
+                        <tr>
+                            <th>ردیف</th>
+                            <th>نام و نام خانوادگی</th>
+                            <th>سمت / تخصص</th>
+                            <th>امضا</th>
+                            <th>تاریخ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>۱</td>
+                            <td class="pending">در انتظار</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                        </tr>
+                        <tr>
+                            <td>۲</td>
+                            <td class="pending">در انتظار</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                        </tr>
+                        <tr>
+                            <td>۳</td>
+                            <td class="pending">در انتظار</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                        </tr>
+                        <tr>
+                            <td>۴</td>
+                            <td class="pending">در انتظار</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                        </tr>
+                        <tr>
+                            <td>۵</td>
+                            <td class="pending">در انتظار</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                            <td class="pending">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Version History -->
+            <div class="version-history">
+                <h3 class="signature-title">تاریخچه نسخه‌ها</h3>
+                <table class="version-table">
+                    <thead>
+                        <tr>
+                            <th>نسخه</th>
+                            <th>تاریخ</th>
+                            <th>وضعیت</th>
+                            <th>توضیحات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="version-badge">۰.۱</span></td>
+                            <td>آذر ۱۴۰۴</td>
+                            <td>پیش‌نویس</td>
+                            <td>تهیه اولیه توسط بنیان‌گذار</td>
+                        </tr>
+                        <tr>
+                            <td>۰.۲</td>
+                            <td class="pending">—</td>
+                            <td class="pending">در انتظار</td>
+                            <td>بازبینی کمیته مؤسس</td>
+                        </tr>
+                        <tr>
+                            <td>۱.۰</td>
+                            <td class="pending">—</td>
+                            <td class="pending">در انتظار</td>
+                            <td>نسخه رسمی تصویب‌شده</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section">
+            <a href="#" class="btn btn-secondary">📥 دانلود PDF</a>
+            <a href="#" class="btn btn-primary">✍️ پیشنهاد اصلاحیه</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>درباره FOC4G</h4>
+                <p>جامعه باز و آزاد برای زمین، نهادی مدنی-تخصصی برای حفاظت از سرزمین از طریق شفافیت، دانش و مشارکت مدنی.</p>
+                <div class="social-links">
+                    <a href="#" title="تلگرام">📱</a>
+                    <a href="#" title="لینکدین">💼</a>
+                    <a href="#" title="یوتیوب">▶️</a>
+                    <a href="#" title="گیت‌هاب">💻</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>لینک‌های سریع</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="manifesto.html">بیانیه</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>منابع</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.osgeo.org" target="_blank">OSGeo Foundation</a></li>
+                    <li><a href="https://foss4g.org" target="_blank">FOSS4G</a></li>
+                    <li><a href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a></li>
+                    <li><a href="https://www.geoforall.org" target="_blank">GeoForAll</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تماس</h4>
+                <p>📍 ارومیه، ایران</p>
+                <p>📧 info@foc4g.org</p>
+                <p>📱 @FOC4G</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ۱۴۰۴ جامعه باز و آزاد برای زمین (FOC4G) | تمامی محتوا تحت مجوز آزاد منتشر می‌شود</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
